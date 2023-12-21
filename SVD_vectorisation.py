@@ -65,7 +65,7 @@ k = 2  # Number of components for SVD
 U, S, VT = svds(sparse_matrix, k=k)
 
 # word_embeddings = U[:, ::-1]  # Rearrange for compatibility with t-SNE
-word_embeddings = U @ np.diag(S)
+word_embeddings = U @ np.diag(S) @ VT
 
 # t-SNE visualization (same as before)
 tsne = TSNE(n_components=2, perplexity=5, random_state=42)
